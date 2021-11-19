@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-@array = [-3, -2, -1, 0, 1, 2].shuffle
+@array = [-3, -2, 2, -1, 0, 1, 2]
 
 def horizontal_line_separator
   p '-------------------------------------------'
@@ -10,8 +10,8 @@ def task_1
   p 'Дан целочисленный массив. Необходимо вывести вначале его
    элементы с четными индексами, а затем - с нечетными.'
   p @array
-  even = @array.find_all(&:even?)
-  odd  = @array.find_all(&:odd?)
+  even = @array.each_with_index { |e, i| p e if i.even? }
+  odd  = @array.each_with_index { |e, i| p e if i.odd? }
   p even
   p odd
   horizontal_line_separator
@@ -21,8 +21,8 @@ def task_2
   p 'Дан целочисленный массив. Необходимо вывести вначале его
    элементы с нечетными индексами, а затем - четными.'
   p @array
-  odd  = @array.find_all(&:odd?)
-  even = @array.find_all(&:even?)
+  odd  = @array.each_with_index { |e, i| p e if i.odd? }
+  even = @array.each_with_index { |e, i| p e if i.even? }
   p odd
   p even
   horizontal_line_separator
@@ -101,6 +101,38 @@ def task_14
    циклический сдвиг элементов массива вправо на одну позицию.'
   p @array
   p @array.rotate(-1)
+  horizontal_line_separator
+end
+
+def task_17
+  p 'Дан целочисленный массив. Найти количество его локальных максимумов.'
+  p @array
+  count_local_max = @array.count(@array.max)
+  p "Count of local maximum: #{count_local_max}"
+  horizontal_line_separator
+end
+
+def task_18
+  p 'Дан целочисленный массив. Найти количество его локальных минимумов.'
+  p @array
+  count_local_min = @array.count(@array.min)
+  p "Count of local minimum: #{count_local_min}"
+  horizontal_line_separator
+end
+
+def task_19
+  p 'Дан целочисленный массив. Найти максимальный из его локальных максимумов.'
+  p @array
+  maximum_of_local_maxima = @array.max
+  p maximum_of_local_maxima
+  horizontal_line_separator
+end
+
+def task_20
+  p 'Дан целочисленный массив. Найти минимальный из его локальных минимумов.'
+  p @array
+  minimum_of_local_minima = @array.min
+  p minimum_of_local_minima
   horizontal_line_separator
 end
 
@@ -184,7 +216,7 @@ end
 def task_44
   p 'Дан целочисленный массив. Найти максимальный нечетный элемент.'
   p @array
-  p @array.find_all { |i| i % 2 == 1}.max
+  p @array.find_all { |i| i.odd?}.max
   horizontal_line_separator
 end
 
@@ -224,33 +256,97 @@ def task_48
   horizontal_line_separator
 end
 
+def task_77
+  p 'Дано целое число. Найти сумму его цифр.'
+  number = rand(1..999)
+  p number
+  a = number / 100 # third number
+  b = number / 10 % 10  # second number
+  c = number % 10 # first number
+  p a + b + c
+  horizontal_line_separator
+end
+
+def task_86
+  p 'Дан целочисленный массив. Найти среднее арифметическое его элементов.'
+  p @array
+  mean = @array.sum / @array.size
+  p mean
+  horizontal_line_separator
+end
+
+def task_87
+  p 'Дан целочисленный массив. Найти все четные элементы.'
+  p @array
+  even = @array.find_all(&:even?)
+  p even
+  horizontal_line_separator
+end
+
+def task_88
+  p 'Дан целочисленный массив. Найти количество четных элементов.'
+  p @array
+  even = @array.find_all(&:even?)
+  p even.count
+  horizontal_line_separator
+end
+
+def task_89
+  p 'Дан целочисленный массив. Найти все нечетные элементы.'
+  p @array
+  odd  = @array.find_all(&:odd?)
+  p odd
+  horizontal_line_separator
+end
+
+def task_90
+  p 'Дан целочисленный массив. Найти количество нечетных элементов.'
+  p @array
+  odd  = @array.find_all(&:odd?)
+  p odd.count
+  horizontal_line_separator
+end
 
 
 
 
-task_1
-task_2
-task_3
-task_4
-task_9
-task_10
-task_11
-task_12
-task_13
-task_14
-task_29
-task_30
-task_31
-task_32
-task_33
-task_34
-task_37
-task_38
-task_41
-task_42
-task_43
-task_44
-task_45
-task_46
-task_47
-task_48
+
+
+# task_1
+# task_2
+# task_3
+# task_4
+# task_9
+# task_10
+# task_11
+# task_12
+# task_13
+# task_14
+# task_17
+# task_18
+# task_19
+# task_20
+# task_29
+# task_30
+# task_31
+# task_32
+# task_33
+# task_34
+# task_37
+# task_38
+# task_41
+# task_42
+# task_43
+# task_44
+# task_45
+# task_46
+# task_47
+# task_48
+# task_77
+# task_86
+# task_87
+# task_88
+# task_89
+# task_90
+
+# 36 tasks is complete

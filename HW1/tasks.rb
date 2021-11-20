@@ -260,9 +260,9 @@ def task_77
   p 'Дано целое число. Найти сумму его цифр.'
   number = rand(1..999)
   p number
-  a = number / 100 # third number
-  b = number / 10 % 10  # second number
-  c = number % 10 # first number
+  a = number / 100
+  b = number / 10 % 10
+  c = number % 10
   p a + b + c
   horizontal_line_separator
 end

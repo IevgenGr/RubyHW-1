@@ -7,8 +7,7 @@ def horizontal_line_separator
 end
 
 def task_1
-  p 'Дан целочисленный массив. Необходимо вывести вначале его
-   элементы с четными индексами, а затем - с нечетными.'
+  p 'Дан целочисленный массив. Необходимо вывести вначале его элементы с четными индексами, а затем - с нечетными.'
   p @array
   even = @array.each_with_index { |e, i| p e if i.even? }
   odd  = @array.each_with_index { |e, i| p e if i.odd? }
@@ -18,8 +17,7 @@ def task_1
 end
 
 def task_2
-  p 'Дан целочисленный массив. Необходимо вывести вначале его
-   элементы с нечетными индексами, а затем - четными.'
+  p 'Дан целочисленный массив. Необходимо вывести вначале его элементы с нечетными индексами, а затем - четными.'
   p @array
   odd  = @array.each_with_index { |e, i| p e if i.odd? }
   even = @array.each_with_index { |e, i| p e if i.even? }
@@ -29,9 +27,7 @@ def task_2
 end
 
 def task_3
-  p 'Дан целочисленный массив. Вывести номер первого
-   из тех его элементов, которые удовлетворяют двойному неравенству:
-   A[0] < A[i] < A[-1]. Если таких элементов нет,то вывести [ ].'
+  p 'Дан целочисленный массив. Вывести номер первого из тех его элементов, которые удовлетворяют двойному неравенству: A[0] < A[i] < A[-1]. Если таких элементов нет,то вывести [ ].'
   p @array
   index = @array.index { |i| @array[0] < i && i < @array[-1] } || '[ ]'
   p index
@@ -39,9 +35,7 @@ def task_3
 end
 
 def task_4
-  p 'Дан целочисленный массив. Вывести номер последнего
-   из тех его элементов,которые удовлетворяют двойному неравенству:
-   A[0] < A[i] < A[-1]. Если таких элементов нет, то вывести [ ].'
+  p 'Дан целочисленный массив. Вывести номер последнего из тех его элементов,которые удовлетворяют двойному неравенству: A[0] < A[i] < A[-1]. Если таких элементов нет, то вывести [ ].'
   p @array
   index = @array.index(@array.select { |i| @array[0] < i && i < @array[-1] }.last) || '[ ]'
   p index
@@ -49,8 +43,7 @@ def task_4
 end
 
 def task_9
-  p 'Дан целочисленный массив. Заменить все
-   положительные элементына значение минимального.'
+  p 'Дан целочисленный массив. Заменить все положительные элементына значение минимального.'
   p @array
   array_min                   = @array.min
   replace_positive_on_minimum = @array.map { |i| i.positive? ? array_min : i }
@@ -59,8 +52,7 @@ def task_9
 end
 
 def task_10
-  p 'Дан целочисленный массив. Заменить все
-   положительные элементы на значение максимального.'
+  p 'Дан целочисленный массив. Заменить все положительные элементы на значение максимального.'
   p @array
   array_max                   = @array.max
   replace_positive_on_maximum = @array.map { |i| i.positive? ? array_max : i }
@@ -69,8 +61,7 @@ def task_10
 end
 
 def task_11
-  p 'Дан целочисленный массив. Заменить все
-   отрицательные элементы на значение минимального.'
+  p 'Дан целочисленный массив. Заменить все отрицательные элементы на значение минимального.'
   p @array
   array_min                   = @array.min
   replace_negative_on_minimum = @array.map { |i| i.negative? ? array_min : i }
@@ -79,8 +70,7 @@ def task_11
 end
 
 def task_12
-  p 'Дан целочисленный массив. Заменить все
-   отрицательные элементы на значение максимального.'
+  p 'Дан целочисленный массив. Заменить все отрицательные элементы на значение максимального.'
   p @array
   array_max                   = @array.max
   replace_negative_on_maximum = @array.map { |i| i.negative? ? array_max : i}
@@ -89,16 +79,14 @@ def task_12
 end
 
 def task_13
-  p 'Дан целочисленный массив. Осуществить
-   циклический сдвиг элементов массива влево на одну позицию.'
+  p 'Дан целочисленный массив. Осуществить циклический сдвиг элементов массива влево на одну позицию.'
   p @array
   p @array.rotate(1)
   horizontal_line_separator
 end
 
 def task_14
-  p 'Дан целочисленный массив. Осуществить
-   циклический сдвиг элементов массива вправо на одну позицию.'
+  p 'Дан целочисленный массив. Осуществить циклический сдвиг элементов массива вправо на одну позицию.'
   p @array
   p @array.rotate(-1)
   horizontal_line_separator
@@ -136,6 +124,34 @@ def task_20
   horizontal_line_separator
 end
 
+def task_25
+  p 'Дан целочисленный массив. Преобразовать его, вставив перед каждым положительным элементом нулевой элемент.'
+  p @array
+  p @array.map { |el| el.positive? ? [@array.first, el] : el }.flatten
+  horizontal_line_separator
+end
+
+def task_26
+  p 'Дан целочисленный массив. Преобразовать его, вставив перед каждым отрицательным элементом нулевой элемент.'
+  p @array
+  p @array.map { |el| el.negative? ? [@array.first, el] : el }.flatten
+  horizontal_line_separator
+end
+
+def task_27
+  p 'Дан целочисленный массив. Преобразовать его, вставив после каждого положительного элементом нулевой элемент.'
+  p @array
+  p @array.map { |el| el.positive? ? [el, @array.first] : el }.flatten
+  horizontal_line_separator
+end
+
+def task_28
+  p 'Дан целочисленный массив. Преобразовать его, вставив после каждого отрицательного элементом нулевой элемент.'
+  p @array
+  p @array.map { |el| el.negative? ? [el, @array.first] : el }.flatten
+  horizontal_line_separator
+end
+
 def task_29
   p 'Дан целочисленный массив. Упорядочить его по возрастанию.'
   p @array
@@ -151,16 +167,14 @@ def task_30
 end
 
 def task_31
-  p 'Дан целочисленный массив. Вывести индексы массива в том порядке,
-   в котором соответствующие им элементы образуют убывающую последовательность.'
+  p 'Дан целочисленный массив. Вывести индексы массива в том порядке, в котором соответствующие им элементы образуют убывающую последовательность.'
   p @array
   p (0...@array.size).sort_by { |i| @array[i] }.reverse
   horizontal_line_separator
 end
 
 def task_32
-  p 'Дан целочисленный массив. Вывести индексы массива в том порядке,
-   в котором соответствующие им элементы образуют возрастающую последовательность.'
+  p 'Дан целочисленный массив. Вывести индексы массива в том порядке, в котором соответствующие им элементы образуют возрастающую последовательность.'
   p @array
   p (0...@array.size).sort_by { |i| @array[i] }
   horizontal_line_separator
@@ -180,6 +194,20 @@ def task_34
   horizontal_line_separator
 end
 
+def task_35
+  p 'Дан целочисленный массив. Найти индекс первого минимального элемента.'
+  p @array
+  p @array.index(@array.min)
+  horizontal_line_separator
+end
+
+def task_36
+  p 'Дан целочисленный массив. Найти индекс первого максимального элемента.'
+  p @array
+  p @array.index(@array.max)
+  horizontal_line_separator
+end
+
 def task_37
   p 'Дан целочисленный массив. Найти индекс последнего минимального элемента.'
   p @array
@@ -191,6 +219,20 @@ def task_38
   p 'Дан целочисленный массив. Найти индекс последнего максимального элемента.'
   p @array
   p @array.rindex(@array.max)
+  horizontal_line_separator
+end
+
+def task_39
+  p 'Дан целочисленный массив. Найти количество минимальных элементов.'
+  p @array
+  p @array.count { |el| el == @array.min }.to_s
+  horizontal_line_separator
+end
+
+def task_40
+  p 'Дан целочисленный массив. Найти количество максимальных элементов.'
+  p @array
+  p @array.count { |el| el == @array.max }.to_s
   horizontal_line_separator
 end
 
@@ -235,8 +277,7 @@ def task_46
 end
 
 def task_47
-  p 'Дан целочисленный массив и интервал a..b.
-   Найти минимальный из элементов в этом интервале.'
+  p 'Дан целочисленный массив и интервал a..b. Найти минимальный из элементов в этом интервале.'
   p @array
   range  = (-16..21)
   array2 = @array & range.to_a
@@ -246,13 +287,64 @@ def task_47
 end
 
 def task_48
-  p 'Дан целочисленный массив и интервал a..b.
-   Найти максимальный из элементов в этом интервале.'
+  p 'Дан целочисленный массив и интервал a..b. Найти максимальный из элементов в этом интервале.'
   p @array
   range  = (-16..21)
   array2 = @array & range.to_a
   max_element_in_range = array2.max
   p max_element_in_range
+  horizontal_line_separator
+end
+
+def task_49
+  p 'Дан целочисленный массив. Найти количество элементов, расположенных перед первым минимальным.'
+  p @array
+  p @array.index(@array.min)
+  horizontal_line_separator
+end
+
+def task_50
+  p 'Дан целочисленный массив. Найти количество элементов, расположенных перед первым максимальным.'
+  p @array
+  p @array.size - @array.index(@array.max - 1)
+  horizontal_line_separator
+end
+
+def task_51
+  p 'Дан целочисленный массив. Найти количество элементов, расположенных после первого максимального.'
+  p @array
+  array_temp = []
+  max = @array.index(@array.max)
+  @array.each_with_index { |el, i| array_temp << el if i > max }
+  p array_temp.size
+  horizontal_line_separator
+end
+
+def task_52
+  p 'Дан целочисленный массив. Найти количество элементов, расположенных после первого минимального.'
+  p @array
+  array_temp = []
+  min = @array.index(@array.min)
+  @array.each_with_index { |el, i| array_temp << el if i > min }
+  p array_temp.size
+  horizontal_line_separator
+end
+
+def task_61
+  p 'Дан целочисленный массив. Найти два наибольших элемента.'
+  p @array
+  array_temp = @array
+  p array_temp.delete(array_temp.max)
+  p array_temp.delete(array_temp.max)
+  horizontal_line_separator
+end
+
+def task_62
+  p 'Дан целочисленный массив. Найти два наименьших элемента.'
+  p @array
+  array_temp = @array
+  p array_temp.delete(array_temp.min)
+  p array_temp.delete(array_temp.min)
   horizontal_line_separator
 end
 
@@ -326,14 +418,22 @@ end
 # task_18
 # task_19
 # task_20
+# task_25
+# task_26
+# task_27
+# task_28
 # task_29
 # task_30
 # task_31
 # task_32
 # task_33
 # task_34
+# task_35
+# task_36
 # task_37
 # task_38
+# task_39
+# task_40
 # task_41
 # task_42
 # task_43
@@ -342,11 +442,15 @@ end
 # task_46
 # task_47
 # task_48
+# task_49
+# task_50
+task_51
+task_52
+# task_61
+# task_62
 # task_77
 # task_86
 # task_87
 # task_88
 # task_89
 # task_90
-
-# 36 tasks is complete

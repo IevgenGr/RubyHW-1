@@ -8,58 +8,58 @@ array = [
 ]
 horizontal_line_separator = '-------------------------------------------'
 
-# – узнать количество элементов в массиве;
-
+puts "узнать количество элементов в массиве;"
+p array
 p array.size
-p horizontal_line_separator
+puts horizontal_line_separator
 
-# – перевернуть массив;
-
+puts "перевернуть массив;"
+p array
 p array.reverse
-p horizontal_line_separator
+puts horizontal_line_separator
 
-# – найти наибольшее число;
-
+puts "найти наибольшее число;"
+p array
 p array.max
-p horizontal_line_separator
+puts horizontal_line_separator
 
-# – найти наименьшее число;
-
+puts "найти наименьшее число;"
+p array
 p array.min
-p horizontal_line_separator
+puts horizontal_line_separator
 
-# – отсортировать от меньшего к большему;
-
+puts "отсортировать от меньшего к большему;"
+p array
 p array.sort
-p horizontal_line_separator
+puts horizontal_line_separator
 
-# – отсортировать от большего к меньшему;
-
+puts "отсортировать от большего к меньшему;"
+p array
 p array.sort.reverse
-p horizontal_line_separator
+puts horizontal_line_separator
 
-# – удалить все нечетные числа;
+puts "удалить все нечетные числа;"
+p array
+p array.map.select(&:even?)
+puts horizontal_line_separator
 
-p array.delete_if(&:odd?)
-p horizontal_line_separator
+puts "оставить только те числа, которые без остатка делятся на 3;"
+p array
+p array.map.select { |el| (el % 3).zero? }
+puts horizontal_line_separator
 
-# – оставить только те числа, которые без остатка делятся на 3;
+puts "удалить из массива числа, которые повторяются (то есть, нужно вывести массив, в котором нет повторов);"
+p array
+p array.map.uniq
+puts horizontal_line_separator
 
-p array.delete_if { |el| (el % 3).zero? }
-p horizontal_line_separator
-
-# – удалить из массива числа, которые повторяются (то есть, нужно вывести массив, в котором нет повторов);
-
-p array.uniq
-p horizontal_line_separator
-
-# – разделить каждый элемент на 10, в результате элементы не должны быть округлены до целого;
-
+puts "разделить каждый элемент на 10, в результате элементы не должны быть округлены до целого;"
+p array
 p array.map { |el| el.to_f / 10 }
-p horizontal_line_separator
+puts horizontal_line_separator
 
-# – получить новый массив, который бы содержал в себе те буквы английского алфавита, порядковый номер которых есть в нашем массиве;
-
+puts "получить новый массив, который бы содержал в себе те буквы английского алфавита, порядковый номер которых есть в нашем массиве;"
+p array
 array2        = []
 array3        = []
 array2[1..26] = ('a'..'z').to_a
@@ -67,10 +67,10 @@ array.each do |el|
   array3 << array2.values_at(el) if el <= (array2.size - 1)
 end
 p array3.flatten
-p horizontal_line_separator
+puts horizontal_line_separator
 
-# – поменять местами минимальный и максимальный элементы массива; PROBLEMS
-
+puts "поменять местами минимальный и максимальный элементы массива;"
+p array
 array_temp                             = array
 min_el                                 = array_temp.each_with_index.min[1]
 max_el                                 = array_temp.each_with_index.max[1]
@@ -78,11 +78,11 @@ array_temp[min_el], array_temp[max_el] = array_temp[max_el], array_temp[min_el]
 p array_temp
 p horizontal_line_separator
 
-# – найти элементы, которые находятся перед минимальным числом в массиве;
-
+puts "найти элементы, которые находятся перед минимальным числом в массиве;"
+p array
 p array[0...array.index(array.min)]
-p horizontal_line_separator
+puts horizontal_line_separator
 
-# – необходимо найти три наименьших элемента.
-
+puts "необходимо найти три наименьших элемента."
+p array
 p array.min(3)

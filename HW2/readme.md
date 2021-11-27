@@ -1,10 +1,10 @@
 **Tamagotchi in Ruby (Ru/Eng)**
 =========================
-###Let's start with what a Tamagotchi is.
+Let's start with what a Tamagotchi is.
 
-####[Wikipedia](https://en.wikipedia.org/wiki/Tamagotchi): «Tamagotchi - is a handheld digital pet».
+[Wikipedia](https://en.wikipedia.org/wiki/Tamagotchi): «Tamagotchi - is a handheld digital pet».
 About My game
-=========================
+Cancel changes=========================
 ###You start the game, and then you are given a choice:
 ####Russian or English 
 ##Game on!

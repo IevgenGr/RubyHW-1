@@ -3,11 +3,12 @@
 Let's start with what a Tamagotchi is.
 
 [Wikipedia](https://en.wikipedia.org/wiki/Tamagotchi): «Tamagotchi - is a handheld digital pet».
+
 About My game
-Cancel changes=========================
-###You start the game, and then you are given a choice:
-####Russian or English 
-##Game on!
+=========================
+### You start the game, and then you are given a choice:
+#### Russian or English 
+## Game on!
 ###     1. Give your pet a name
 ###     2. Look up information about the pet Play with your pet
 ###     4. Water the pet
@@ -25,13 +26,13 @@ Cancel changes=========================
 
 The parameters will be
 ========================
-####Animal
-####Animal Name
-####Life of the animal
-####Animal's Water Quantum
-####Animal hunger
-####Energy of the animal
-####Animal's mood
-####The animal needs to sleep
-####The pet needs to go to the vet
+#### Animal
+#### Animal Name
+#### Life of the animal
+#### Animal's Water Quantum
+#### Animal hunger
+#### Energy of the animal
+#### Animal's mood
+#### The animal needs to sleep
+#### The pet needs to go to the vet
 

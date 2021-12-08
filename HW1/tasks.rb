@@ -95,60 +95,60 @@ end
 def task_17
   p 'Дан целочисленный массив. Найти количество его локальных максимумов.'
   p @array
-  count_local_max = @array.count(@array.max)
-  p "Count of local maximum: #{count_local_max}"
+  p @array.each_index.select { |i| @array[i] > @array[i - 1] && @array[i] > @array[i + 1] }.size
   horizontal_line_separator
 end
 
 def task_18
   p 'Дан целочисленный массив. Найти количество его локальных минимумов.'
   p @array
-  count_local_min = @array.count(@array.min)
-  p "Count of local minimum: #{count_local_min}"
+  p @array.each_index.select { |i| @array[i - 1] && @array[i] < @array[i - 1] && @array[i + 1] && @array[i] < @array[i + 1] }.size
   horizontal_line_separator
 end
 
 def task_19
   p 'Дан целочисленный массив. Найти максимальный из его локальных максимумов.'
   p @array
-  maximum_of_local_maxima = @array.max
-  p maximum_of_local_maxima
+  p @array.select { |el| el > @array[@array.index(el) - 1] && el > @array[@array.index(el) + 1] }.max
   horizontal_line_separator
 end
 
 def task_20
   p 'Дан целочисленный массив. Найти минимальный из его локальных минимумов.'
   p @array
-  minimum_of_local_minima = @array.min
-  p minimum_of_local_minima
+  p @array.select { |el| @array[@array.index(el) - 1] && el < @array[@array.index(el) - 1] && @array[@array.index(el) + 1] && el < @array[@array.index(el) + 1] }.min
   horizontal_line_separator
 end
 
 def task_25
   p 'Дан целочисленный массив. Преобразовать его, вставив перед каждым положительным элементом нулевой элемент.'
-  p @array
-  p @array.map { |el| el.positive? ? [@array.first, el] : el }.flatten
+  a = @array
+  p a
+  p a.map! { |el| el.positive? ? [a.first, el] : el }.flatten
   horizontal_line_separator
 end
 
 def task_26
   p 'Дан целочисленный массив. Преобразовать его, вставив перед каждым отрицательным элементом нулевой элемент.'
-  p @array
-  p @array.map { |el| el.negative? ? [@array.first, el] : el }.flatten
+  a = @array
+  p a
+  p a.map! { |el| el.negative? ? [a.first, el] : el }.flatten
   horizontal_line_separator
 end
 
 def task_27
   p 'Дан целочисленный массив. Преобразовать его, вставив после каждого положительного элементом нулевой элемент.'
-  p @array
-  p @array.map { |el| el.positive? ? [el, @array.first] : el }.flatten
+  a = @array
+  p a
+  p a.map! { |el| el.positive? ? [el, a.first] : el }.flatten
   horizontal_line_separator
 end
 
 def task_28
   p 'Дан целочисленный массив. Преобразовать его, вставив после каждого отрицательного элементом нулевой элемент.'
-  p @array
-  p @array.map { |el| el.negative? ? [el, @array.first] : el }.flatten
+  a = @array
+  p a
+  p a.map! { |el| el.negative? ? [el, a.first] : el }.flatten
   horizontal_line_separator
 end
 
@@ -225,14 +225,14 @@ end
 def task_39
   p 'Дан целочисленный массив. Найти количество минимальных элементов.'
   p @array
-  p @array.count { |el| el == @array.min }.to_s
+  p @array.count { |el| el == @array.min }
   horizontal_line_separator
 end
 
 def task_40
   p 'Дан целочисленный массив. Найти количество максимальных элементов.'
   p @array
-  p @array.count { |el| el == @array.max }.to_s
+  p @array.count { |el| el == @array.max }
   horizontal_line_separator
 end
 
@@ -245,7 +245,7 @@ end
 
 def task_42
   p 'Дан целочисленный массив. Найти минимальный нечетный элемент.'
-  p @array.find_all.min
+  p @array.find_all(&:odd?).min
   horizontal_line_separator
 end
 
@@ -258,7 +258,7 @@ end
 def task_44
   p 'Дан целочисленный массив. Найти максимальный нечетный элемент.'
   p @array
-  p @array.find_all { |i| i.odd?}.max
+  p @array.find_all(&:odd?).max
   horizontal_line_separator
 end
 
@@ -270,7 +270,7 @@ def task_45
 end
 
 def task_46
-  p 'Дан целочисленный массив. Найти минимальный положительный элемент.'
+  p 'Дан целочисленный массив. Найти максимальный отрицательный элемент.'
   p @array
   p @array.select(&:negative?).max
   horizontal_line_separator
@@ -279,34 +279,28 @@ end
 def task_47
   p 'Дан целочисленный массив и интервал a..b. Найти минимальный из элементов в этом интервале.'
   p @array
-  range  = (-16..21)
-  array2 = @array & range.to_a
-  min_element_in_range = array2.min
-  p min_element_in_range
+  p @array.select { |el| (@array[a..b]).include?(el) }.min
   horizontal_line_separator
 end
 
 def task_48
   p 'Дан целочисленный массив и интервал a..b. Найти максимальный из элементов в этом интервале.'
   p @array
-  range  = (-16..21)
-  array2 = @array & range.to_a
-  max_element_in_range = array2.max
-  p max_element_in_range
+  p @array.select { |el| (@array[a..b]).include?(el) }.max
   horizontal_line_separator
 end
 
 def task_49
   p 'Дан целочисленный массив. Найти количество элементов, расположенных перед первым минимальным.'
   p @array
-  p @array.index(@array.min)
+  p @array[0...@array.index(@array.min)].size
   horizontal_line_separator
 end
 
 def task_50
   p 'Дан целочисленный массив. Найти количество элементов, расположенных перед первым максимальным.'
   p @array
-  p @array.size - @array.index(@array.max - 1)
+  p @array[0...@array.index(@array.max)].size
   horizontal_line_separator
 end
 
@@ -333,29 +327,21 @@ end
 def task_61
   p 'Дан целочисленный массив. Найти два наибольших элемента.'
   p @array
-  array_temp = @array
-  p array_temp.delete(array_temp.max)
-  p array_temp.delete(array_temp.max)
+  p @array.max(2)
   horizontal_line_separator
 end
 
 def task_62
   p 'Дан целочисленный массив. Найти два наименьших элемента.'
   p @array
-  array_temp = @array
-  p array_temp.delete(array_temp.min)
-  p array_temp.delete(array_temp.min)
+  p @array.min(2)
   horizontal_line_separator
 end
 
 def task_77
   p 'Дано целое число. Найти сумму его цифр.'
-  number = rand(1..999)
-  p number
-  a = number / 100
-  b = number / 10 % 10
-  c = number % 10
-  p a + b + c
+  number = gets.chomp
+  number.digits.sum
   horizontal_line_separator
 end
 

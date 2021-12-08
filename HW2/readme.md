@@ -1,4 +1,4 @@
-**Tamagotchi in Ruby (Ru/Eng)**
+**Tamagotchi in Ruby (Ru)**
 =========================
 Let's start with what a Tamagotchi is.
 
@@ -6,8 +6,6 @@ Let's start with what a Tamagotchi is.
 
 About My game
 =========================
-### You start the game, and then you are given a choice:
-#### Russian or English 
 ## Game on!
 ###     1. Give your pet a name
 ###     2. Look up information about the pet Play with your pet
